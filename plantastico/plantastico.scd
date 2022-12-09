@@ -7,7 +7,7 @@ SerialPort.devices;
 ~port =SerialPort.new(SerialPort.devices[1],9600);
 //~port =SerialPort.new(SerialPort.devices[3],9600);
 //corre el sample
-~ruta = "/Users/rbn/biocoding/Samples/"
+~ruta =thisProcess.nowExecutingPath.dirname
 m = NetAddr.new("127.0.0.1", 47120);    // create the NetAddr
 //compute the data
 (
@@ -51,7 +51,7 @@ Routine({
 
 //Create synths
 (
-~pluck = Buffer.read(s, ~ruta ++ "heavy 0.wav");
+~pluck = Buffer.read(s, ~ruta ++ "/heavy 0.wav");
 SynthDef(\pluck, {
 	arg freq=1, amp=1;
 	var sig;
@@ -60,7 +60,7 @@ SynthDef(\pluck, {
 		doneAction:2);
 	Out.ar(0,sig);
 }).add;
-~string = Buffer.read(s, ~ruta ++ "beep (3).wav");
+~string = Buffer.read(s, ~ruta ++ "/beep (3).wav");
 SynthDef(\string, {
 	arg freq=1, amp=1;
 	var sig;
@@ -69,7 +69,7 @@ SynthDef(\string, {
 		doneAction:2);
 	Out.ar(0,sig);
 }).add;
-~snare = Buffer.read(s, ~ruta ++ "1_tamborine.wav");
+~snare = Buffer.read(s, ~ruta ++ "/1_tamborine.wav");
 SynthDef(\snare, {
 	arg freq=1, amp=1;
 	var sig;
