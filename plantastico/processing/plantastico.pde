@@ -5,7 +5,8 @@ OscP5 oscP5;
 float x, y, z; // global variable
 
 void setup() {
-  size(displayWidth, displayHeight);
+  //size(displayWidth, displayHeight);
+  fullScreen();
   frameRate(20);
   
   smooth();
@@ -17,20 +18,21 @@ void setup() {
 }
 
 void draw() {
-background(142,78,222);
+  background(142,78,222);
   println("POST: ", x);
   println("POST: ", y);
   println("POST: ", z);
-  //background(x,y,z);
+
   noStroke();
+  
 fill(98,202,245);
-circle(displayWidth/4, displayHeight/2, 200-x);
+circle(displayWidth/4, displayHeight/2, 200+x);
 
 fill(250,229,81);
-circle(displayWidth/2, displayHeight/2, 300-y);
+circle(displayWidth/2, displayHeight/2, 100+y);
 
 fill(78,222,90);
-circle(displayWidth/4 + displayWidth/2, displayHeight/2, 200+z);
+circle(displayWidth/4 + displayWidth/2, displayHeight/2, 300+z);
 }
 
 void oscEvent(OscMessage msg) {
